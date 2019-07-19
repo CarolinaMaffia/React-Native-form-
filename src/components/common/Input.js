@@ -1,9 +1,9 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import { TextInput, HelperText } from 'react-native-paper';
-import { TouchableOpacity, StyleSheet, View, Text  } from 'react-native';
+import { StyleSheet  } from 'react-native';
 import PropTypes from 'prop-types';
 
- const Input = ({ onChangeText, onBlur, value, label, keyboardType, error, onPress }) => { 
+ const Input = ({ onChangeText, onBlur, value, label, keyboardType, error }) => { 
 
     return (
       <Fragment>
@@ -17,26 +17,27 @@ import PropTypes from 'prop-types';
           secureTextEntry={keyboardType === "visible-password"}
           error={error}
         />
-
-        { value === '' ? 
+        { /* Show/hide button 
+        
+        { keyboardType != 'visible-password' ? 
           <View style={{ opacity: 0 }}>
-          <TouchableOpacity
-            style={[styles.viewTextButton]}
-            onPress={onPress}
-          >
-            <Text>View</Text>
-          </TouchableOpacity>
-        </View> :
-
+            <TouchableOpacity
+              style={[styles.viewTextButton]}
+              onPress={onPress}
+            >
+              <Text>View</Text>
+            </TouchableOpacity>
+          </View> 
+          : 
         <View style={[styles.viewTextContainer]}>
-        <TouchableOpacity
-          style={{backgroundColor: '#ffff'}}
-          onPress={() => console.log('asdsad') }
-        >
-          <Text style={{ color:"#6393c5"}}>View</Text>
-        </TouchableOpacity>
-      </View>
-        }
+          <TouchableOpacity
+            style={{backgroundColor: '#ffff'}}
+            onPress={(e) => setShowPassword(e.target.value)}
+          >
+            <Text style={{ color:"#6393c5"}}>View</Text>
+          </TouchableOpacity>
+        </View>
+        } */}
         
         <HelperText type="error" visible={error}>
               {error}
