@@ -37,7 +37,7 @@ import PropTypes from 'prop-types';
             backgroundColor="#6393c5"
             />
           </View>
-        </View>
+          </View>
         )}
    </Formik>
    );
