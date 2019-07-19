@@ -16,7 +16,6 @@ import PropTypes from 'prop-types';
       yup.object().shape({
       employeeNumber: yup
         .number()
-        .min(9)
         .required("Employee number is required")
     })}
     >
@@ -38,7 +37,7 @@ import PropTypes from 'prop-types';
             backgroundColor="#6393c5"
             />
           </View>
-          </View>
+        </View>
         )}
    </Formik>
    );

@@ -1,9 +1,12 @@
 import React, { Fragment, useState, useEffect } from 'react';
 import { TextInput, HelperText } from 'react-native-paper';
-import { StyleSheet  } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity  } from 'react-native';
 import PropTypes from 'prop-types';
 
  const Input = ({ onChangeText, onBlur, value, label, keyboardType, error }) => { 
+
+  const [showPassword, setShowPassword] = useState(true);
+  const handleToggle = () => setShowPassword(!showPassword);
 
     return (
       <Fragment>
@@ -14,16 +17,14 @@ import PropTypes from 'prop-types';
           onChangeText={onChangeText}
           onBlur={onBlur}
           value={value}
-          secureTextEntry={keyboardType === "visible-password"}
+          secureTextEntry={(showPassword) && keyboardType === "visible-password"}
           error={error}
         />
-        { /* Show/hide button 
         
         { keyboardType != 'visible-password' ? 
           <View style={{ opacity: 0 }}>
             <TouchableOpacity
               style={[styles.viewTextButton]}
-              onPress={onPress}
             >
               <Text>View</Text>
             </TouchableOpacity>
@@ -32,12 +33,12 @@ import PropTypes from 'prop-types';
         <View style={[styles.viewTextContainer]}>
           <TouchableOpacity
             style={{backgroundColor: '#ffff'}}
-            onPress={(e) => setShowPassword(e.target.value)}
+            onPress={() => handleToggle()}
           >
             <Text style={{ color:"#6393c5"}}>View</Text>
           </TouchableOpacity>
         </View>
-        } */}
+        }
         
         <HelperText type="error" visible={error}>
               {error}
