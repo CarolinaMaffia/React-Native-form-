@@ -10,7 +10,6 @@ import PropTypes from 'prop-types';
           label={label}
           keyboardType={keyboardType === "visible-password" ? "default" : keyboardType}
           mode={'outlined'}
-          // theme={{ roundness: 5 }}
           onChangeText={onChangeText}
           onBlur={onBlur}
           value={value}
